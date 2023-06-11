@@ -1,23 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState} from "react";
+import Board from "./TicTacToeGame/Board";
+
 
 function App() {
+  const [show,setShow]= useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    {show? <div><Board /></div> : null}
+      <div 
+      style={{
+        width: '200px',
+        display: 'flex',
+        margin:'auto',
+        justifyContent:'center'
+      }}>
+      {show?null:
+      <div>
+      <button className="btn" id="startGame" onClick={()=>setShow(true)}>
+        Start a new Game
+      </button></div>}
+      </div>
+      
+      
     </div>
   );
 }
